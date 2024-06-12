@@ -1,0 +1,180 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "Manchester City",
+      "country": "England",
+      "position": 1,
+      "abbreviation": "MCI"
+    },
+    {
+      "id": 2,
+      "name": "Arsenal",
+      "country": "England",
+      "position": 2,
+      "abbreviation": "ARS"
+    },
+    {
+      "id": 3,
+      "name": "Liverpool",
+      "country": "England",
+      "position": 3,
+      "abbreviation": "LIV"
+    },
+    {
+      "id": 4,
+      "name": "Aston Villa",
+      "country": "England",
+      "position": 4,
+      "abbreviation": "AVL"
+    },
+    {
+      "id": 5,
+      "name": "Real Madrid",
+      "country": "Spain",
+      "position": 5,
+      "abbreviation": "RMA"
+    },
+    {
+      "id": 6,
+      "name": "Barcelona",
+      "country": "Spain",
+      "position": 6,
+      "abbreviation": "BAR"
+    },
+    {
+      "id": 7,
+      "name": "Girona",
+      "country": "Spain",
+      "position": 7,
+      "abbreviation": "GIR"
+    },
+    {
+      "id": 8,
+      "name": "Atlético",
+      "country": "Spain",
+      "position": 8,
+      "abbreviation": "ATL"
+    },
+    {
+      "id": 9,
+      "name": "Bayer Leverkusen",
+      "country": "Germany",
+      "position": 9,
+      "abbreviation": "LEV"
+    },
+    {
+      "id": 10,
+      "name": "Stuttgart",
+      "country": "Germany",
+      "position": 10,
+      "abbreviation": "STU"
+    },
+    {
+      "id": 11,
+      "name": "Bayern Munich",
+      "country": "Germany",
+      "position": 11,
+      "abbreviation": "BAY"
+    },
+    {
+      "id": 12,
+      "name": "Leipzig",
+      "country": "Germany",
+      "position": 12,
+      "abbreviation": "RBL"
+    },
+    {
+      "id": 13,
+      "name": "Inter Milan",
+      "country": "Italy",
+      "position": 13,
+      "abbreviation": "INT"
+    },
+    {
+      "id": 14,
+      "name": "Milan",
+      "country": "Italy",
+      "position": 14,
+      "abbreviation": "MIL"
+    },
+    {
+      "id": 15,
+      "name": "Bologna",
+      "country": "Italy",
+      "position": 15,
+      "abbreviation": "BOL"
+    },
+    {
+      "id": 16,
+      "name": "Juventus",
+      "country": "Italy",
+      "position": 16,
+      "abbreviation": "JUV"
+    },
+    {
+      "id": 17,
+      "name": "Paris Saint-Germain",
+      "country": "France",
+      "position": 17,
+      "abbreviation": "PSG"
+    },
+    {
+      "id": 18,
+      "name": "Monaco",
+      "country": "France",
+      "position": 18,
+      "abbreviation": "MON"
+    },
+    {
+      "id": 19,
+      "name": "Lille",
+      "country": "France",
+      "position": 19,
+      "abbreviation": "LIL"
+    },
+    {
+      "id": 20,
+      "name": "PSV",
+      "country": "Netherlands",
+      "position": 20,
+      "abbreviation": "PSV"
+    },
+    {
+      "id": 21,
+      "name": "Feyenoord",
+      "country": "Netherlands",
+      "position": 21,
+      "abbreviation": "FEY"
+    },
+    {
+      "id": 22,
+      "name": "Sporting CP",
+      "country": "Portugal",
+      "position": 22,
+      "abbreviation": "SCP"
+    },
+    {
+      "id": 23,
+      "name": "Anderlecht",
+      "country": "Belgium",
+      "position": 23,
+      "abbreviation": "AND"
+    },
+    {
+      "id": 24,
+      "name": "Celtic",
+      "country": "Scotland",
+      "position": 24,
+      "abbreviation": "CEL"
+    },
+    {
+      "id": 25,
+      "name": "Sturm Graz",
+      "country": "Austria",
+      "position": 25,
+      "abbreviation": "STG"
+    }
+  ]
+  
+}
