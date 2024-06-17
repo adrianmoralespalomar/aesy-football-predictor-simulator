@@ -113,7 +113,7 @@ export function GetRound16Teams(teams: Team[]):Knockout[]{
   ]
 }
 
-export function GetQuartersTeams(teams: Team[]):Knockout[]{
+export function GetQuartersTeams():Knockout[]{
   return [
     {
       localTeamId: 0,
@@ -142,7 +142,7 @@ export function GetQuartersTeams(teams: Team[]):Knockout[]{
   ]
 }
 
-export function GetSemisTeams(teams: Team[]):Knockout[]{
+export function GetSemisTeams():Knockout[]{
   return [
     {
       localTeamId: 0,
@@ -159,7 +159,7 @@ export function GetSemisTeams(teams: Team[]):Knockout[]{
   ]
 }
 
-export function GetFinalTeams(teams: Team[]):Knockout[]{
+export function GetFinalTeams():Knockout[]{
   return [
     {
       localTeamId: 0,

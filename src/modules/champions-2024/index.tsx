@@ -38,9 +38,9 @@ export function Champions2024() {
     fechTeamsQualified(qualifiedTeams);
     fechthirtyTwoRound(GetRound32Teams(qualifiedTeams));
     fechsixteenRound(GetRound16Teams(qualifiedTeams.slice(0,8)));
-    fechquartersRound(GetQuartersTeams(qualifiedTeams.slice(0,8)));
-    fechsemisRound(GetSemisTeams(qualifiedTeams.slice(0,8)));
-    fechfinalRound(GetFinalTeams(qualifiedTeams.slice(0,8)));
+    fechquartersRound(GetQuartersTeams());
+    fechsemisRound(GetSemisTeams());
+    fechfinalRound(GetFinalTeams());
   }
   
   return (

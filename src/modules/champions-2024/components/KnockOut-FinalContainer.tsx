@@ -3,7 +3,7 @@ import { KnockOutTeamContainer } from "./KnockOutTeamContainer";
 
 export function KnockOutFinalContainer(){
   const finalRound = useTeamsStore((state) => state.finalRound);
-  const selectTeamWon = (bracket_next_round:number, bracket_next_round_as_local:boolean,teamWonId:number) => {};
+  const selectTeamWon = () => {};
   return(
     <>
     <section className= "p-2 border-2 rounded-lg bg-emerald-400 border-x-gray-300">
