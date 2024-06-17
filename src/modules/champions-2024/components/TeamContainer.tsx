@@ -14,7 +14,7 @@ export function TeamContainer({team}:TeamContainerProps){
   };
   return (
     <>
-      <div className="flex flex-row items-center justify-start gap-2 p-3 backdrop-brightness-50" style={style} ref={setNodeRef} {...attributes} {...listeners} >
+      <div className="flex flex-row items-center justify-start gap-2 p-3 backdrop-brightness-50 team-container" style={style} ref={setNodeRef} {...attributes} {...listeners} >
         <span className="w-4 text-md">{team.position}</span>
         <img className="w-12 h-auto" src={`/src/assets/teams-logo/${team.abbreviation}.webp`} alt="" />
         <span className="text-sm">{team.name}</span>

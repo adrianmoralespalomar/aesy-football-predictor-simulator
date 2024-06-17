@@ -1,0 +1,11 @@
+.group-container .team-container:nth-child(-n+8){
+  background-color: rgb(124 58 237)
+}
+
+.group-container .team-container:nth-of-type(n+9):nth-of-type(-n+24){
+  background-color: rgb(30 64 175);
+}
+
+.group-container .team-container:nth-of-type(n+25){
+  background-color: rgb(131 24 67);
+}

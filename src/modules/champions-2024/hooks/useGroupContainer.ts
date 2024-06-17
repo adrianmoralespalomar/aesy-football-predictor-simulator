@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Team } from "../models/teams";
 import { DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
@@ -10,23 +9,18 @@ interface useGroupContainerProps {
 }
 
 export function useGroupContainer(props:useGroupContainerProps) {
-  const [teams, setTeams] = useState<Team[]>();
-  useEffect(() => {
-    setTeams(props.initialTeams as Team[]);
-  }, [props.initialTeams]);
-
+  const teamsInitial = useTeamsStore((state) => state.teamsInitial);
+  const fechTeams = useTeamsStore((state) => state.fechTeams);
   const handleDragEnd = (event:DragEndEvent) => {
     const { active, over } = event;
     if ((!over) || active.id === over?.id) return;
-    setTeams((currentTeams) => {
-      if(!currentTeams) return [];
-      const oldIndex = currentTeams.findIndex((team) => team.id === active.id);
-      const newIndex = currentTeams.findIndex((team) => team.id === over?.id);
-      return arrayMove(currentTeams, oldIndex, newIndex).map((team, index) => {
-        return { ...team, position: index + 1 + props.start_index };
-      });
-    });
+    if(!teamsInitial) return [];
+    const oldIndex = teamsInitial.findIndex((team) => team.id === active.id);
+    const newIndex = teamsInitial.findIndex((team) => team.id === over?.id);
+    fechTeams(arrayMove(teamsInitial, oldIndex, newIndex).map((team, index) => {
+      return { ...team, position: index + 1 + props.start_index };
+    }));
   };
 
-  return { teams, handleDragEnd }
+  return { teamsInitial, handleDragEnd }
 }

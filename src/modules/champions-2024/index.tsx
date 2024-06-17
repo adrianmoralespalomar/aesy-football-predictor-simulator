@@ -1,15 +1,14 @@
 import { useEffect } from "react";
 import { GroupContainer } from "./components/GroupContainer";
-import { KnockOutContainer } from "./components/KnockOutContainer";
-import { useChampionsTeams } from "./hooks/useChampionsTeams";
-import { GetChampionsTeams } from "./services/champions-2024-service";
+import { GetChampionsTeams, GetFinalTeams, GetQuartersTeams, GetRound16Teams, GetRound32Teams, GetSemisTeams } from "./services/champions-2024-service";
 import { useTeamsStore } from "./store/TeamsStore";
+import { KnockOutFinalContainer } from "./components/KnockOut-FinalContainer";
+import { KnockOutQuartersContainer } from "./components/KnockOut-QuartersContainer";
+import { KnockOutSemisContainer } from "./components/KnockOut-SemisContainer";
+import { KnockOutSixteenContainer } from "./components/KnockOut-SixteenContainer";
+import { KnockOutThirtyTwoContainer } from "./components/KnockOut-ThirtyTwoContainer";
 
-const CHAMPIONS_GROUP_LIMIT = {
-  FIRST: 8,
-  SECOND: 24,
-  THIRD: 35, 
-}
+
 export function Champions2024() {
   //Not using zustand
   // const { teams } = useChampionsTeams();
@@ -17,40 +16,68 @@ export function Champions2024() {
   //Using zustand => To send data to KnockOutContainer
   const teamsInitial = useTeamsStore((state) => state.teamsInitial);
   const fechTeams = useTeamsStore((state) => state.fechTeams);
-  const fechTeamsQualified = useTeamsStore((state) => state.fechTeamsQualified);
   useEffect(() => {
     async function GetTeams() {
       const currrentTeams = await GetChampionsTeams(); 
       fechTeams(currrentTeams);
-      fechTeamsQualified(currrentTeams);
     }
     GetTeams();
   },[]);
-  //This part is for both (using or not zustand)
-  const firstGroup = teamsInitial.slice(0, CHAMPIONS_GROUP_LIMIT.FIRST);
-  const secondGroup = teamsInitial.slice(CHAMPIONS_GROUP_LIMIT.FIRST, CHAMPIONS_GROUP_LIMIT.SECOND);
-  const thirdGroup = teamsInitial.slice(CHAMPIONS_GROUP_LIMIT.SECOND, CHAMPIONS_GROUP_LIMIT.THIRD);
+
+  const finalTeamsQualified = useTeamsStore((state) => state.finalTeamsQualified);
+  const fechTeamsQualified = useTeamsStore((state) => state.fechTeamsQualified);
+  const fechthirtyTwoRound = useTeamsStore((state) => state.fechthirtyTwoRound);
+  const fechsixteenRound = useTeamsStore((state) => state.fechsixteenRound);
+  const fechquartersRound = useTeamsStore((state) => state.fechquartersRound);
+  const fechsemisRound = useTeamsStore((state) => state.fechsemisRound);
+  const fechfinalRound = useTeamsStore((state) => state.fechfinalRound);
+
+
+  function GetTeamsQualified() {
+    const qualifiedTeams = structuredClone(teamsInitial).slice(0,24);
+    fechTeamsQualified(qualifiedTeams);
+    fechthirtyTwoRound(GetRound32Teams(qualifiedTeams));
+    fechsixteenRound(GetRound16Teams(qualifiedTeams.slice(0,8)));
+    fechquartersRound(GetQuartersTeams(qualifiedTeams.slice(0,8)));
+    fechsemisRound(GetSemisTeams(qualifiedTeams.slice(0,8)));
+    fechfinalRound(GetFinalTeams(qualifiedTeams.slice(0,8)));
+  }
+  
   return (
     <>
-      <main className='flex flex-col items-center justify-center text-white parallax-background font-champions'>
-        <section id="groups-phase">
+      <main className = 'container flex flex-col items-center justify-center mx-auto text-white font-champions'>
+        <section id="groups-phase" className="flex flex-col items-center">
           <h1 className="text-6xl">Champions 2024</h1>
-          <p>Teams: {teamsInitial.length}</p>
+          <h1 className="text-4xl">League</h1>
           {/* <DragDropComponentExample/> */}
           {/* <SortableComponentExample/> */}
           <section className="flex flex-row gap-5">
-            <GroupContainer title = "First Group" color_container = "bg-violet-600" teams ={firstGroup} start_index={0}/>
-
-            <GroupContainer title = "Second Group" color_container = "bg-blue-800" teams = {secondGroup} start_index={CHAMPIONS_GROUP_LIMIT.FIRST}/>
-
-            <GroupContainer title = "Third Group" color_container = "bg-pink-900" teams = {thirdGroup} start_index={CHAMPIONS_GROUP_LIMIT.SECOND}/>
+            <GroupContainer teams ={teamsInitial} start_index={0}/>
           </section>
         </section>
 
-        <button className='p-3 mt-5 bg-pink-700'>Generate Knock Out</button>
+        <button className='p-3 my-5 bg-pink-700' onClick={GetTeamsQualified}>Generate Knock Out</button>
 
-        <KnockOutContainer/>
+        {finalTeamsQualified?.length>0 && 
+          <>
+            <h1 className = "text-4xl">KnockOut</h1>
+            <section className="flex flex-col items-center gap-3">
+            {finalTeamsQualified?.length>0 ? <KnockOutThirtyTwoContainer/>: undefined}
+            
+            <KnockOutSixteenContainer/>
+
+            <KnockOutQuartersContainer/>
+
+            <KnockOutSemisContainer/>
+
+            <KnockOutFinalContainer/>
+          
+            </section>
+          </>
         
+        }
+
+  
       </main>
     </>
   )
