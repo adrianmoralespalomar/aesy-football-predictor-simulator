@@ -4,10 +4,10 @@
 
 @font-face {
   font-family: 'champions-font';
-  src: url('/src/assets/fonts/Champions-Bold.woff2'), serif;
+  src: url('/public/assets/fonts/Champions-Bold.woff2'), serif;
 }
 .parallax-background {
-  background-image: url('/src/assets/champions-wallpaper.jpg');
+  background-image: url('/public/assets/champions-wallpaper.jpg');
   height: 100%;
   background-attachment: fixed;
   background-position: center;
