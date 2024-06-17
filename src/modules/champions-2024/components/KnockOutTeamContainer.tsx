@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTeamsStore } from "../store/TeamsStore";
+import { TEAMS_LOGOS_FOLDER } from "../../core/constants/Image_Folder";
 
 export interface KnockOutTeamContainerProps {
   localRivalIndex:number,
@@ -30,7 +31,7 @@ export function KnockOutTeamContainer(props:KnockOutTeamContainerProps){
       <div className = "w-1 h-0.5 bg-slate-50"></div>
       
       <button disabled = {!awayTeam} className = {`hover:brightness-75 ease-in duration-300 ${selectedTeamWon === props.awayRivalIndex ? 'selected-team' : ''}`} onClick={() => selectTeamWon(props.awayRivalIndex)}>
-        <img className = "w-12 h-12 p-1" alt="" src={`/public/assets/teams-logo/${awayTeam?.abbreviation}.webp`} onError={(e) => e.currentTarget.src = '/public/assets/teams-logo/notfoundpicture.webp'}  />
+        <img className = "w-12 h-12 p-1" alt="" src={`${TEAMS_LOGOS_FOLDER}${awayTeam?.abbreviation}.webp`} onError={(e) => e.currentTarget.src = `${TEAMS_LOGOS_FOLDER}/notfoundpicture.webp`}  />
       </button>
     </div>
       
